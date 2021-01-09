@@ -10,11 +10,15 @@ import { AppService, GetPokemonDetailsResponse, GetPokemonListPayload, GetPokemo
 })
 export class HomeComponent implements OnInit {
 
+  pokemonListOriginals: PokemonModel[];
+
   pokemonList: PokemonModel[];
   pagination;
   lightTheme;
+  filter;
 
   constructor(private appService: AppService) {
+    this.pokemonListOriginals = [];
     this.pokemonList = [];
     this.pagination = {
       offset: 0,
@@ -22,6 +26,7 @@ export class HomeComponent implements OnInit {
       count: 0,
     };
     this.lightTheme = false;
+    this.filter = "";
   }
 
   ngOnInit(): void {
@@ -32,6 +37,7 @@ export class HomeComponent implements OnInit {
   async loadPokemonList() {
     const urls = await this.loadPokemonListInfo();
     await this.loadPokemonListDetails(urls);
+
 
   }
 
@@ -57,7 +63,8 @@ export class HomeComponent implements OnInit {
       pokemon.url = item;
       pokemon.imageUrl = sprintf(urlImage, pokemon.id);
 
-      this.pokemonList.push(pokemon);
+      this.pokemonListOriginals.push(pokemon);
+      this.search();
     })
   }
 
@@ -69,7 +76,12 @@ export class HomeComponent implements OnInit {
 
   onScroll() {
     this.pagination.offset += this.pagination.limit;
-    this.loadPokemonList
+    this.loadPokemonList();
+  }
+
+  search() {
+    if (!this.filter || this.filter.length > 3)
+      this.pokemonList = this.pokemonListOriginals.filter(item => item.name.includes(this.filter));
   }
 
 }

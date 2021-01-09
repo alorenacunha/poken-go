@@ -1,25 +1,36 @@
 <main class="container">
   <div class="header">
     <div class="header__search">
-      <input class="header__search--input" />
-      <button class="header__search--button">
-        <img *ngIf="!lightTheme" src="../../../assets/images/loupe.svg" />
+      <input
+        class="header__search--input"
+        type="text"
+        name="search"
+        value="search"
+        [(ngModel)]="filter"
+        (keyup)="search()"
+        (keyup.enter)="search()"
+        (change)="search()"
+      />
+      <button class="header__search--button" (click)="search()">
+        <img *ngIf="lightTheme" src="../../../assets/images/loupe.svg" />
+        <img *ngIf="!lightTheme" src="../../../assets/images/loupe-light.svg" />
       </button>
     </div>
     <button
+      class="header__theme"
       [ngClass]="{
-        '__button--dark': lightTheme,
-        '__button--light': !lightTheme
+        'header__theme--dark': lightTheme,
+        'header__theme--light': !lightTheme
       }"
       (click)="toggleTheme()"
       data-switch-dark
       aria-hidden
     >
       <img
-        *ngIf="lightTheme"
+        *ngIf="!lightTheme"
         src="../../../assets/images/light-bulb-solid.svg"
       />
-      <img *ngIf="!lightTheme" src="../../../assets/images/light-bulb.svg" />
+      <img *ngIf="lightTheme" src="../../../assets/images/light-bulb.svg" />
     </button>
   </div>
 

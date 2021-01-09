@@ -1,36 +1,47 @@
 @import "./../../../styles.scss";
 
 .header {
-  width: 100%;
   height: 64px;
   display: flex;
   flex-flow: row nowrap;
+  padding: $default-padding;
   align-items: stretch;
+  justify-content: space-between;
   &__search {
     display: flex;
     flex-flow: row nowrap;
+    width: 50%;
     &--input {
       @extend %input-base;
+      margin-right: $default-margin;
     }
     &--button {
       @extend %button-base;
       img {
-        fill: $light-gray;
+        svg {
+          fill: var(--color-text);
+          stroke: var(--color-text);
+        }
+        width: $icon-size;
       }
     }
   }
-  &___button--dark {
+  &__theme {
     @extend %button-base;
-    background-color: $light;
-    img {
-      fill: $light;
+    justify-content: end;
+    &--dark {
+      background-color: $light;
+      img {
+        fill: $light;
+        width: $icon-size;
+      }
     }
-  }
-  &__button--light {
-    @extend %button-base;
-    background-color: $dark;
-    img {
-      fill: $light;
+    &--light {
+      background-color: $dark;
+      img {
+        fill: $light;
+        width: $icon-size;
+      }
     }
   }
 }
@@ -39,8 +50,8 @@
   display: grid;
   grid-gap: 1rem;
   padding: $default-padding;
-  height: calc(100vh - 72px);
-  overflow-y: auto;
+  height: calc(100vh - 200px);
+  overflow-y: scroll;
 }
 
 @media (min-width: 600px) {
