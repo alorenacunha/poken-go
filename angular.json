@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "poke-evollo"
+    }
+  },
+  "defaultProject": "poke-evollo",
+  "cli": {
+    "analytics": "a8f33125-b91f-4938-9fa8-e9197f0521c2"
+  }
 }
