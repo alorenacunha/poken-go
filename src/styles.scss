@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap");
+
+$primary-color: #bfd8f2;
+$secondary-color: #df7eea;
+$brand-primary-color: #ffca08;
+$brand-secondary-color: #2b6eb4;
+
+$black: black;
+$dark: #2b2b2b;
+$dark-gray: #454343;
+$gray: #777777;
+$light-gray: #e0e0e0;
+$medium-gray: rgb(195, 193, 193);
+$off-white: #ebebeb;
+$light: #fdfdfd;
+$white: white;
+
+$font-size-nano: 8px;
+$font-size-tiny: 10px;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-big: 18px;
+$font-size-large: 22px;
+$font-size-huge: 28px;
+
+$primary-font: "Montserrat";
+$secondary-font: "Hanalei Fill";
+
+$default-border-radius: 8px;
+
+$default-border-width: 2px;
+
+$default-padding: 24px;
+$default-margin: 24px;
+
+$elevation-light: 0px 4.8px 14.4px rgba(0, 0, 0, 0.18),
+  0px 25.6px 57.6px rgba(0, 0, 0, 0.22);
+
+$elevation-dark: 0px 4.8px 14.4px rgba(0, 0, 0, 0.18),
+  0px 25.6px 57.6px rgba(0, 0, 0, 0.22);
+:root {
+  --color-page-background: #{$dark};
+  --color-text: #{$light};
+  --elevation: #{$elevation-dark};
+}
+
+.light {
+  --color-page-background: #{$light};
+  --color-text: #{$dark};
+  --elevation: #{$elevation-light};
+}
+
+* {
+  transition: all 0.15s ease;
+}
+
+body {
+  background-color: var(--color-page-background);
+  color: var(--color-text);
+}
+
+%input-base {
+  background-color: transparent;
+  font-family: $primary-font;
+  font-size: $font-size-medium;
+  box-shadow: var(--elevation);
+  color: var(--color-text);
+
+  margin: 0px;
+  padding: $default-padding;
+  width: 100%;
+
+  border: $default-border-width solid $brand-secondary-color;
+  border-radius: $default-border-radius;
+
+  &:active,
+  &:hover,
+  &:focus {
+    border-color: var(--color-text);
+    border-width: $default-border-width;
+  }
+}
+
+%button-base {
+  background-color: transparent;
+  border: none;
+  border-radius: $default-border-radius;
+  padding: $default-padding;
+  text-align: center;
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 800;
+  font-size: $font-size-medium;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1em;
+  box-shadow: var(--elevation);
+  color: var(--color-text);
+  cursor: pointer;
+
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: $brand-primary-color;
+    border: $default-border-width $default-border-width $brand-secondary-color;
+  }
+}

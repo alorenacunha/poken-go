@@ -1,0 +1,21 @@
+@import "./../../../styles.scss";
+
+.card {
+  border-radius: $default-border-radius;
+  box-shadow: var(--elevation);
+  &__title {
+    padding: $default-padding;
+    font-size: $font-size-huge;
+    font-family: $secondary-font;
+    text-align: center;
+    color: $brand-primary-color;
+    text-shadow: 3px 3px 0 $brand-secondary-color,
+      -1px -1px 0 $brand-secondary-color, 1px -1px 0 $brand-secondary-color,
+      -1px 1px 0$brand-secondary-color, 1px 1px 0 $brand-secondary-color;
+  }
+
+  &__description {
+    font-size: $font-size-small;
+    font-family: $primary-font;
+  }
+}

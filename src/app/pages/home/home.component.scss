@@ -1,0 +1,74 @@
+@import "./../../../styles.scss";
+
+.header {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  &__search {
+    display: flex;
+    flex-flow: row nowrap;
+    &--input {
+      @extend %input-base;
+    }
+    &--button {
+      @extend %button-base;
+      img {
+        fill: $light-gray;
+      }
+    }
+  }
+  &___button--dark {
+    @extend %button-base;
+    background-color: $light;
+    img {
+      fill: $light;
+    }
+  }
+  &__button--light {
+    @extend %button-base;
+    background-color: $dark;
+    img {
+      fill: $light;
+    }
+  }
+}
+
+.content {
+  display: grid;
+  grid-gap: 1rem;
+  padding: $default-padding;
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+
+@media (min-width: 600px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1500px) {
+  .content {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1800px) {
+  .content {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

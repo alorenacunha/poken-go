@@ -1,0 +1,38 @@
+<main class="container">
+  <div class="header">
+    <div class="header__search">
+      <input class="header__search--input" />
+      <button class="header__search--button">
+        <img *ngIf="!lightTheme" src="../../../assets/images/loupe.svg" />
+      </button>
+    </div>
+    <button
+      [ngClass]="{
+        '__button--dark': lightTheme,
+        '__button--light': !lightTheme
+      }"
+      (click)="toggleTheme()"
+      data-switch-dark
+      aria-hidden
+    >
+      <img
+        *ngIf="lightTheme"
+        src="../../../assets/images/light-bulb-solid.svg"
+      />
+      <img *ngIf="!lightTheme" src="../../../assets/images/light-bulb.svg" />
+    </button>
+  </div>
+
+  <div
+    class="content"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="500"
+    (scrolled)="onScroll()"
+    [scrollWindow]="false"
+  >
+    <ng-container *ngFor="let pokemon of pokemonList">
+      <app-card [pokemon]="pokemon"></app-card>
+    </ng-container>
+  </div>
+</main>
