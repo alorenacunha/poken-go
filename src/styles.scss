@@ -17,12 +17,12 @@ $light: #fdfdfd;
 $white: white;
 
 $font-size-nano: 8px;
-$font-size-tiny: 10px;
-$font-size-small: 12px;
-$font-size-medium: 14px;
-$font-size-big: 18px;
-$font-size-large: 22px;
-$font-size-huge: 28px;
+$font-size-tiny: 12px;
+$font-size-small: 14px;
+$font-size-medium: 18px;
+$font-size-big: 22px;
+$font-size-large: 28px;
+$font-size-huge: 48px;
 
 $primary-font: "Montserrat";
 $secondary-font: "Hanalei Fill";
@@ -102,9 +102,7 @@ body {
   color: var(--color-text);
   cursor: pointer;
 
-  &:active,
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: $brand-primary-color;
     border: $default-border-width $default-border-width $brand-secondary-color;
   }

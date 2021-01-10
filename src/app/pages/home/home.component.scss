@@ -1,23 +1,41 @@
 @import "./../../../styles.scss";
 
+.container {
+  background-color: var(--color-page-background);
+  color: var(--color-text);
+}
+
 .header {
-  height: 64px;
+  height: 115px;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   padding: $default-padding;
   align-items: stretch;
   justify-content: space-between;
+  &__title {
+    width: 100%;
+    font-size: $font-size-huge;
+    font-family: $secondary-font;
+    text-align: center;
+    align-self: center;
+    color: $brand-primary-color;
+    text-shadow: 3px 3px 0 $brand-secondary-color,
+      -1px -1px 0 $brand-secondary-color, 1px -1px 0 $brand-secondary-color,
+      -1px 1px 0$brand-secondary-color, 1px 1px 0 $brand-secondary-color;
+  }
   &__search {
     display: flex;
     flex-flow: row nowrap;
-    width: 50%;
     &--input {
       @extend %input-base;
-      margin-right: $default-margin;
+      margin-right: $default-padding;
+      width: max-content;
     }
     &--button {
       @extend %button-base;
+
       img {
+        align-self: center;
         svg {
           fill: var(--color-text);
           stroke: var(--color-text);
@@ -48,10 +66,55 @@
 
 .content {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: $default-margin;
   padding: $default-padding;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 250px);
   overflow-y: scroll;
+}
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+    height: calc(100vh - 300px);
+  }
+  .header {
+    display: flex;
+    flex-flow: row wrap;
+    height: 115px;
+    &__title {
+      width: auto;
+    }
+    &__search--button {
+      display: none;
+    }
+    &__theme {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+    height: calc(100vh - 300px);
+  }
+  .header {
+    display: flex;
+    flex-flow: row wrap;
+    height: 115px;
+    &__title {
+      width: auto;
+    }
+    &__search--button {
+      display: none;
+      width: 100%;
+    }
+    &__theme {
+      img {
+        fill: $light;
+        width: calc($icon-size / 2);
+      }
+    }
+  }
 }
 
 @media (min-width: 600px) {
@@ -63,6 +126,15 @@
 @media (min-width: 900px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
+    height: calc(100vh - 200px);
+  }
+  .header {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 64px;
+    &__title {
+      width: auto;
+    }
   }
 }
 

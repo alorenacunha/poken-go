@@ -10,9 +10,10 @@ import { AppService, GetPokemonDetailsResponse, GetPokemonListPayload, GetPokemo
 })
 export class HomeComponent implements OnInit {
 
-  pokemonListOriginals: PokemonModel[];
+  title = "Pokemon";
+  pokemonListOriginals: any[];
 
-  pokemonList: PokemonModel[];
+  pokemonList: any[];
   pagination;
   lightTheme;
   filter;
@@ -80,8 +81,9 @@ export class HomeComponent implements OnInit {
   }
 
   search() {
-    if (!this.filter || this.filter.length > 3)
+    if (!this.filter || this.filter.length > 3) {
       this.pokemonList = this.pokemonListOriginals.filter(item => item.name.includes(this.filter));
+    }
   }
 
 }

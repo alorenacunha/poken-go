@@ -3,9 +3,10 @@
 .card {
   border-radius: $default-border-radius;
   box-shadow: var(--elevation);
+  padding: $default-padding;
+
   &__title {
-    padding: $default-padding;
-    font-size: $font-size-huge;
+    font-size: $font-size-large;
     font-family: $secondary-font;
     text-align: center;
     color: $brand-primary-color;

@@ -11,10 +11,10 @@ export class AppService {
     private http: HttpClient
   ) { }
 
+  getPokemonListURL = "https://pokeapi.co/api/v2/pokemon";
   public getPokemonList(params: GetPokemonListPayload) {
-    const url = "https://pokeapi.co/api/v2/pokemon";
     return this.http.get<GetPokemonListResponse>(
-      url.concat(sprintf("?offset=%s&limit=%s", params.offset, params.limit))
+      this.getPokemonListURL.concat(sprintf("?offset=%s&limit=%s", params.offset, params.limit))
     ).toPromise();
   }
 
@@ -24,45 +24,44 @@ export class AppService {
     ).toPromise();
   }
 
+  getPokemonImageURL = "https://github.com/PokeAPI/sprites/tree/master/sprites/pokemon";
   public getPokemonImage(id) {
-    const url = "https://github.com/PokeAPI/sprites/tree/master/sprites/pokemon";
     return this.http.get(
-      url.concat(sprintf("/%s", id))
+      this.getPokemonImageURL.concat(sprintf("/%s", id))
     ).toPromise();
   }
 }
 
 export interface GetPokemonListPayload {
-  offset: Number;
-  limit: Number;
+  offset: number;
+  limit: number;
 }
 
 export interface GetPokemonListResponse {
-  count: Number;
-  next: String;
-  previous: String;
+  count: number;
+  next: string;
+  previous: string;
   results: Info[];
 }
 
-interface Info {
-  name: String;
-  url: String;
+export interface Info {
+  name: string;
+  url: string;
 }
 
 export interface GetPokemonDetailsResponse {
-  base_experience: Number;
-  name: String;
-  id: Number;
+  name: string;
+  id: number;
   sprites: Sprites;
 }
 
 export interface Sprites {
-  back_default: String;
-  back_female: String;
-  back_shiny: String;
-  back_shiny_female: String;
-  front_default: String;
-  front_female: String;
-  front_shiny: String;
-  front_shiny_female: String;
+  back_default: string;
+  back_female: string;
+  back_shiny: string;
+  back_shiny_female: string;
+  front_default: string;
+  front_female: string;
+  front_shiny: string;
+  front_shiny_female: string;
 }

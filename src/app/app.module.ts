@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule } from '@angular/forms';
+import { AppService } from './services/app.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     InfiniteScrollModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [HttpClientModule, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

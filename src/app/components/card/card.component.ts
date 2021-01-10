@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PokemonModel } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'app-card',
@@ -8,9 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
 
-  @Input() pokemon;
+  @Input() pokemon: PokemonModel;
 
-  constructor() { }
+  constructor() {
+    this.pokemon = new PokemonModel();
+  }
 
   ngOnInit(): void {
   }
